@@ -41,8 +41,11 @@ router.get('/:id', (req, res) => {
         through: ProductTag,
       },
     ],
-  }).then(res => {
-    res.json(res);
+  }).then(product => {
+    res.json(product);
+  }).catch((err) => {
+    console.log(err);
+    res.status(400).json(err);
   });
 });
 
@@ -56,18 +59,19 @@ router.post('/', (req, res) => {
       tagIds: [1, 2, 3, 4]
     }
   */
-  Product.create({
-    id: req.body.id,
-    product_name: req.body.product_name,
-    price: req.body.price,
-    stock: req.body.stock,
-    category_id: req.body.category_id,
-    tag_name: req.body.tag_name,
-  })
+  Product.create(
+    req.body
+    // product_name: req.body.product_name,
+    // price: req.body.price,
+    // stock: req.body.stock,
+    // category_id: req.body.category_id,
+  )
     .then((product) => {
       // if there's product tags, we need to create pairings to bulk create in the ProductTag model
-      if (req.body.tagIds.length) {
-        const productTagIdArr = req.body.tagIds.map((tag_id) => {
+      product.update()
+      if (req.body.tags.length) {
+        console.log(req.body.tags);
+        const productTagIdArr = req.body.tags.map((tag_id) => {
           return {
             product_id: product.id,
             tag_id,
@@ -141,7 +145,11 @@ router.delete('/:id', (req, res) => {
     where: {
       id: req.params.id
     }
-  })
+  }).then((updatedProductTags) => res.json(updatedProductTags))
+    .catch((err) => {
+      // console.log(err);
+      res.status(400).json(err);
+    });
 });
 
 module.exports = router;
