@@ -1,4 +1,4 @@
-# employee-tracker
+# E-commerce Back End
 
    ![Language](https://img.shields.io/badge/Lang-JavaScript-yellow)
 
@@ -6,55 +6,75 @@
   1. [Description](#description)
   2. [Installation Instructions](#installation-instructions)
   3. [Usage Information](#usage-information)
-  4. [Questions](#questions)
+  4. [Tests](#tests)
+  5. [Questions](#questions)
  
   
   ## Description
-  View and manage departments, roles and employees in your organization with this Node.js app.
+  Using the Sequelize ORM, create models and routes for the RESTful api end-points for an already functional Express.js API.
 
-  This application is created in Node.js with MySql2 npm package which connects to user's MySql database.
+  When the schema and seed commands are entered, the development database is created in MYSQL and is seeded with test data.  Then invoke the the application and test the end-points in Insomnia core including CRUD routes for:
+  Category, Product and Tag, as well as showing one of those items by ID.
 
-  Inquirer prompts guide the user through a series of database views and opportunities to edit employees, roles and departments in a variety of ways.
-
-  ![Dashboard](assets/et.jpg)
-
-  [Github Pages](https://github.com/webprinc3ss/employee-tracker)
+  [Github Pages](https://github.com/webprinc3ss/e-commerce-back-end)
 
   [Link to Demo](https://drive.google.com/file/d/150fot3lkTtuUIntXz6A6Bh_7sP0vW6gg/view)
 
   ## Installation Instructions
-    1. [Clone the repo](https://github.com/webprinc3ss/readme-generator.git)
+
+    1. [Clone the repo](git@github.com:webprinc3ss/e-commerce-back-end.git)
 
     2. [Install node.js](https://nodejs.org/en/)
 
-    3. [Install npm](https://www.npmjs.com/package/inquirer)
+    3. [Install npm, Express, Sequelize, MySql, dotenv](https://www.npmjs.com/)
+    
+    npm install express sequelize mysql2
 
-    4. [Install sql2](https://www.npmjs.com/package/mysql2)
+    4. [Create: a dotenv file to hide your password](https://www.npmjs.com/package/dotenv)
 
-    5. Add your sql password to the following function:
-
-        const connection = mysql.createConnection({
-            ...
-            password: "password_here",
-            ...
-        });
-
-    6. [Install console.table](https://www.npmjs.com/package/console.table)
-
-    7. [Install figlet](https://www.npmjs.com/package/figlet)
-
-    8. Initiate the database (in Bash): 
-        
-        npm run db:init (If you use my package.json script.)
-        npm run db:seed 
-
-        Otherwise run
-
-        mysql -u root -p < db/schema.sql
-        mysql -u root -p < db/seeds.sql
+    5. [Install console.table](https://www.npmjs.com/package/console.table)
    
   ## Usage Information
-  After you have installed the above, open your terminal and enter, "node index" to start the app.
+    Run the following commands in your VCS integrated terminal 
+        
+    1.  To create the database:
+            mysql -u root -p
+            source db/schema.sql
+            show databases;
+            quit;
+        
+    2.  Seed the database
+            npm run seed
+
+    3.  Run the app
+            npm run start
+            or
+            node server
+
+  ## Tests
+  Use Insomnia Core to test the following endpoints
+  [Download Insomnia Core](https://insomnia.rest/download/core/)
+
+    Tags
+        GET:        http://localhost:3001/api/tags
+        GET by ID:  http://localhost:3001/api/tags/1
+        CREATE:     http://localhost:3001/api/tags
+        UPDATE:     http://localhost:3001/api/tags/1
+        DELETE:     http://localhost:3001/api/tags/1
+
+    Products
+        GET:        http://localhost:3001/api/products
+        GET by ID:  http://localhost:3001/api/products/1
+        CREATE:     http://localhost:3001/api/products
+        UPDATE:     http://localhost:3001/api/products/1
+        DELETE:     http://localhost:3001/api/products/1
+
+    Categories
+        GET:        http://localhost:3001/api/categories
+        GET by ID:  http://localhost:3001/api/categorie/1
+        CREATE:     http://localhost:3001/api/categories
+        UPDATE:     http://localhost:3001/api/categorie/1
+        DELETE:     http://localhost:3001/api/categorie/1
 
   ## Questions
   Please feel free to contact me, webprinc3ss at Github: https://github.com/webprinc3ss 
