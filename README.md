@@ -31,8 +31,6 @@
     npm install express sequelize mysql2
 
 [Create: a dotenv file to hide your password](https://www.npmjs.com/package/dotenv)
-
-[Install console.table](https://www.npmjs.com/package/console.table)
    
   ## Usage Information
     Run the following commands in your VCS integrated terminal 
