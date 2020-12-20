@@ -71,10 +71,10 @@
 
     Categories
         GET:        http://localhost:3001/api/categories
-        GET by ID:  http://localhost:3001/api/categorie/1
+        GET by ID:  http://localhost:3001/api/categories/1
         CREATE:     http://localhost:3001/api/categories
-        UPDATE:     http://localhost:3001/api/categorie/1
-        DELETE:     http://localhost:3001/api/categorie/1
+        UPDATE:     http://localhost:3001/api/categories/1
+        DELETE:     http://localhost:3001/api/categories/1
 
   ## Questions
   Please feel free to contact me, webprinc3ss at Github: https://github.com/webprinc3ss 
