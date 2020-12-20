@@ -22,17 +22,17 @@
 
   ## Installation Instructions
 
-    1. [Clone the repo](git@github.com:webprinc3ss/e-commerce-back-end.git)
+[Clone the repo](git@github.com:webprinc3ss/e-commerce-back-end.git)
 
-    2. [Install node.js](https://nodejs.org/en/)
+[Install node.js](https://nodejs.org/en/)
 
-    3. [Install npm, Express, Sequelize, MySql, dotenv](https://www.npmjs.com/)
+[Install npm, Express, Sequelize, MySql, dotenv](https://www.npmjs.com/)
     
     npm install express sequelize mysql2
 
-    4. [Create: a dotenv file to hide your password](https://www.npmjs.com/package/dotenv)
+[Create: a dotenv file to hide your password](https://www.npmjs.com/package/dotenv)
 
-    5. [Install console.table](https://www.npmjs.com/package/console.table)
+[Install console.table](https://www.npmjs.com/package/console.table)
    
   ## Usage Information
     Run the following commands in your VCS integrated terminal 
