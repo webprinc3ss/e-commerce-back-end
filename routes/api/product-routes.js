@@ -7,6 +7,7 @@ const { Product, Category, Tag, ProductTag } = require('../../models');
 router.get('/', (req, res) => {
   // find all products
   // be sure to include its associated Category and Tag data
+
   Product.findAll({
     include: [
       {
@@ -92,14 +93,16 @@ router.post('/', (req, res) => {
 // update product
 router.put('/:id', (req, res) => {
   // update product data
-  Product.update({
-    id: req.body.id,
-    product_name: req.body.product_name,
-    price: req.body.price,
-    stock: req.body.stock,
-    category_id: req.body.category_id,
-    tag_name: req.body.tag_name,
-  },
+  Product.update(
+    req.body,
+    //   {
+    //   id: req.body.id,
+    //   product_name: req.body.product_name,
+    //   price: req.body.price,
+    //   stock: req.body.stock,
+    //   category_id: req.body.category_id,
+    //   tag_name: req.body.tag_name,
+    // },
     {
       where: {
         id: req.params.id,
@@ -113,7 +116,7 @@ router.put('/:id', (req, res) => {
       // get list of current tag_ids
       const productTagIds = productTags.map(({ tag_id }) => tag_id);
       // create filtered list of new tag_ids
-      const newProductTags = req.body.tagIds
+      const newProductTags = req.body.tags
         .filter((tag_id) => !productTagIds.includes(tag_id))
         .map((tag_id) => {
           return {
@@ -123,7 +126,7 @@ router.put('/:id', (req, res) => {
         });
       // figure out which ones to remove
       const productTagsToRemove = productTags
-        .filter(({ tag_id }) => !req.body.tagIds.includes(tag_id))
+        .filter(({ tag_id }) => !req.body.tags.includes(tag_id))
         .map(({ id }) => id);
 
       // run both actions
